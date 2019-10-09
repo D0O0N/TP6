@@ -62,6 +62,34 @@ public class HsqlDBTest {
 		String name = myObject.nameOfCustomer(-1);
 		assertNull("name should be null, customer does not exist !", name);
 	}
+        @Test
+	public void addProductTest() throws SQLException {
+		myObject.addProduct(58,"Bananes",5);
+            
+                
+	}
+        @Test
+	public void getProductTest() throws SQLException {
+                ProductEntity ppl;
+                myObject.addProduct(58,"Bananes",5);
+		ppl = myObject.getProduct(58);
+                assertEquals(ppl.getName(), "Bananes");
+                assertEquals(ppl.getPrice(), 5,0.01);
+                ProductEntity iron;
+                iron = myObject.getProduct(0);
+                assertEquals(iron.getName(), "Iron Iron");
+                assertEquals(54.00f,iron.getPrice(),0.01f);
+            
+                
+	}
+        @Test
+	public void PositivePrice() throws SQLException {
+                ProductEntity ppl;
+                myObject.addProduct(58,"Bananes",-10);
+
+            
+                
+	}
 
 	public static DataSource getDataSource() {
 		org.hsqldb.jdbc.JDBCDataSource ds = new org.hsqldb.jdbc.JDBCDataSource();
@@ -69,5 +97,7 @@ public class HsqlDBTest {
 		ds.setUser("sa");
 		ds.setPassword("sa");
 		return ds;
-	}	
+	}
+        
+        
 }
