@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 
 import org.hsqldb.cmdline.SqlFile;
 import org.hsqldb.cmdline.SqlToolError;
+import org.junit.Assert;
 
 
 public class HsqlDBTest {
@@ -84,8 +85,17 @@ public class HsqlDBTest {
 	}
         @Test
 	public void PositivePrice() throws SQLException {
-                ProductEntity ppl;
-                myObject.addProduct(58,"Bananes",-10);
+            
+            try{
+                //ProductEntity ppl;
+                //myObject.addProduct(58,"Bananes",-10);
+                fail("Should have thrown an exception"); 
+                       }
+            catch(Exception e){
+              assertEquals("Tout se passe bien", "Tout se passe bien");
+            }
+            
+                
 
             
                 
